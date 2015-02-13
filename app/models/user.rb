@@ -3,4 +3,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+
+  def self.create_test_user(email: 'ray@test.com')
+    create!(email: email, password: 'asdfasdf', password_confirmation: 'asdfasdf')
+  end
 end
