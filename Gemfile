@@ -41,3 +41,5 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 
 gem 'bootstrap-sass'
+
+gem 'slim'

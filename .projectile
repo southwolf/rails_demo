@@ -1,0 +1,10 @@
+-/log
+-/tmp
+-/vendor
+-/public/uploads
+-/.idea
+-/components
+-/bower_components
+-/bin
+-/.bundle
+-/node_modules
