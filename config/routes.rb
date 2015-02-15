@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
 
+  resources :profiles, only: [:show, :update] do
+    collection do
+      get :home
+    end
+  end
+
+  root 'welcome#index'
   devise_for :users
 
-  root to: redirect('/users/sign_in')
+  # root to: redirect('/users/sign_in')
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

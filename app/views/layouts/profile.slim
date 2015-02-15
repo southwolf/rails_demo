@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    = stylesheet_link_tag 'application'
+    = csrf_meta_tags
+  body.container(ng-app="profile")
+    .double-column-main.row(ng-controller="HomeCtrl")
+      .col-sm-3.col-sm-offset-1.left-column
+        = yield 'left_column_content'
+      .col-sm-8.right-column
+        = yield
+
+    = javascript_include_tag 'application'

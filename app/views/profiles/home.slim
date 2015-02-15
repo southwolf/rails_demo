@@ -1,0 +1,14 @@
+
+.profile(ng-init="currentProfile = #{@profile.to_json}")
+  = render 'left_column_content'
+  h3(ng-bind="'Hello ' + currentProfile.name")
+
+  .edit-profile(ng-if="displayPartial('edit-profile')")
+    form.form-horizontal
+      .form-group
+        label.control-label.col-sm-2 Name
+        .col-sm-4
+          input(type="text" ng-model="editProfile.name")
+      .form-group
+        .col-sm-offset-2.col-sm-4
+          button.btn.btn-default(ng-click="updateProfile(editProfile)") Update Profile

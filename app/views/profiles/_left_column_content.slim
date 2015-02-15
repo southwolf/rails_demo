@@ -1,0 +1,7 @@
+= content_for 'left_column_content', class: 'profile-left-column' do
+  / = p @profile.name
+
+  .btn-group-vertical
+    button.btn.btn-primary(ng-click="currentPartial='default'") Home
+    button.btn.btn-primary(ng-click="currentPartial='edit-profile'") Edit Profile
+    = link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'btn btn-default'

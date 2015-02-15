@@ -43,3 +43,9 @@ gem 'devise'
 gem 'bootstrap-sass'
 
 gem 'slim'
+
+group :test do
+  gem 'fabrication'
+end
+
+gem 'acts_as_follower'
