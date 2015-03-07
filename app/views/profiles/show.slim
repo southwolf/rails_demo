@@ -1,0 +1,8 @@
+= render 'right_column_content'
+
+.profile(data-pid="#{@profile.id}")
+  .head
+    / h3 What Sharing
+  .tweets
+    .tweet(ng-repeat="tweet in otherUserProfile.tweets")
+      p.message(ng-bind="tweet.message")

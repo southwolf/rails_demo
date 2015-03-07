@@ -15,26 +15,26 @@
     position: absolute;
     margin-top: 50px;
     height: 100%;
-  }
 
-  .ng-enter {
-    -webkit-animation: fadeInRight 0.5s;
-    animation: fadeInRight 0.5s;
-  }
+    .ng-enter {
+      -webkit-animation: fadeInRight 0.5s;
+      animation: fadeInRight 0.5s;
+    }
 
-  .ng-leave {
-    -webkit-animation: fadeOutDown 0.5s;
-    animation: fadeOutDown 0.5s;
-  }
+    .ng-leave {
+      -webkit-animation: fadeOutDown 0.5s;
+      animation: fadeOutDown 0.5s;
+    }
 
-  .ng-hide-remove {
-    -webkit-animation: bounceIn 2.5s;
-    animation: bounceIn 2.5s;
-  }
+    .ng-hide-remove {
+      -webkit-animation: bounceIn 2.5s;
+      animation: bounceIn 2.5s;
+    }
 
-  .ng-hide-add {
-    -webkit-animation: flipOutX 2.5s;
-    animation: flipOutX 2.5s;
-    display: block !important;
+    .ng-hide-add {
+      -webkit-animation: flipOutX 2.5s;
+      animation: flipOutX 2.5s;
+      display: block !important;
+    }
   }
 }

@@ -51,3 +51,4 @@ end
 gem 'acts_as_follower'
 
 gem 'quiet_assets'
+gem 'acts_as_follower'

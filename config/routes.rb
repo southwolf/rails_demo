@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :follow_users, only: [:create, :destroy]
   resources :tweets
 
   get 'posts/create'

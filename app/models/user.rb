@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  acts_as_followable
+  acts_as_follower
+
   has_one :profile
   has_many :tweets
   delegate :name, to: :profile
@@ -12,4 +15,6 @@ class User < ActiveRecord::Base
   def self.create_test_user(email = 'ray@test.com')
     create!(email: email, password: 'asdfasdf', password_confirmation: 'asdfasdf')
   end
+
+
 end

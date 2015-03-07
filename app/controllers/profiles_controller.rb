@@ -1,5 +1,7 @@
 class ProfilesController < ApplicationController
-  layout 'profile'
+
+  layout :dynamic_layout
+  respond_to :json, :html
 
   # Current user's home page
   def home
@@ -9,30 +11,11 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
-  end
-
-  # GET /profiles/new
-  def new
-    @profile = Profile.new
-  end
-
-  # GET /profiles/1/edit
-  def edit
-  end
-
-  # POST /profiles
-  # POST /profiles.json
-  def create
-    @profile = Profile.new(profile_params)
-
+    @profile = Profile.find(params[:id])
+    @user = @profile.user
     respond_to do |format|
-      if @profile.save
-        format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
-        format.json { render :show, status: :created, location: @profile }
-      else
-        format.html { render :new }
-        format.json { render json: @profile.errors, status: :unprocessable_entity }
-      end
+      format.html
+      format.json { render layout: false }
     end
   end
 
@@ -56,5 +39,13 @@ class ProfilesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def profile_params
     params.require(:profile).permit(:name)
+  end
+
+  def dynamic_layout
+    if action_name == 'home'
+      'profile'
+    elsif action_name == 'show'
+      'profile_at_right'
+    end
   end
 end

@@ -1,0 +1,7 @@
+= content_for 'right_column_content', class: 'profile-right-column' do
+  p
+    = @profile.name
+
+  .btn-group-vertical(ng-if="otherUserProfile")
+    button.btn.btn-primary(ng-click="unfollow()" ng-if="otherUserProfile.if_current_user_follow") UnFollow
+    button.btn.btn-primary(ng-click="follow()" ng-if="!otherUserProfile.if_current_user_follow") Follow

@@ -30,3 +30,24 @@ angular.module('profile', ['ngAnimate'])
          .error((err)->
           console.log(err);
         )
+
+  .controller 'OtherUserHomeCtrl', ($scope, $http)->
+    pid = angular.element('.profile').attr('data-pid')
+    $http.get("/profiles/#{pid}.json")
+      .success (data)->
+        $scope.otherUserProfile = data
+
+    $scope.follow = ->
+      $http.post("/follow_users.json", {follow_user: {following_id: $scope.otherUserProfile.user_id}})
+        .success (data)->
+          $scope.otherUserProfile.if_current_user_follow = !$scope.otherUserProfile.if_current_user_follow
+        .error (err)->
+          console.log err
+
+    $scope.unfollow = ->
+      params = {follow_user: {following_id: $scope.otherUserProfile.user_id}}
+      $http.delete("/follow_users/0.json", {data: params, headers: {'Content-Type': 'application/json'}})
+        .success (data)->
+          $scope.otherUserProfile.if_current_user_follow = !$scope.otherUserProfile.if_current_user_follow
+        .error (err)->
+          console.log err
