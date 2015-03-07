@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :tweets
+
+  get 'posts/create'
+
   resources :profiles, only: [:show, :update] do
     collection do
       get :home

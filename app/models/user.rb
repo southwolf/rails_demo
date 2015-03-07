@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :profile
+  has_many :tweets
+  delegate :name, to: :profile
   after_create {create_profile}
 
   def self.create_test_user(email = 'ray@test.com')

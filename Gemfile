@@ -42,10 +42,12 @@ gem 'devise'
 
 gem 'bootstrap-sass'
 
-gem 'slim'
+gem 'slim-rails'
 
 group :test do
   gem 'fabrication'
 end
 
 gem 'acts_as_follower'
+
+gem 'quiet_assets'
