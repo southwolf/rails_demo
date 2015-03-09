@@ -2,6 +2,6 @@
   p
     = @profile.name
 
-  .btn-group-vertical(ng-if="otherUserProfile")
+  .btn-group.follow-buttons(ng-if="otherUserProfile")
     button.btn.btn-primary(ng-click="unfollow()" ng-if="otherUserProfile.if_current_user_follow") UnFollow
     button.btn.btn-primary(ng-click="follow()" ng-if="!otherUserProfile.if_current_user_follow") Follow

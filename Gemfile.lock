@@ -159,6 +159,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_follower
+  autoprefixer-rails
   bootstrap-sass
   coffee-rails (~> 4.0.0)
   devise

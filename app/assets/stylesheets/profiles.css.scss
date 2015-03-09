@@ -11,6 +11,16 @@
     padding-left: 60px;
   }
 
+  .follow-buttons {
+    .ng-enter {
+      animation: fadeInRight 1s;
+    }
+
+    .ng-leave {
+      animation: fadeOutDown 1s;
+    }
+  }
+
   .main-content {
     position: absolute;
     margin-top: 50px;

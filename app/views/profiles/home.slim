@@ -17,7 +17,7 @@
       = render "tweets/form"
       .tweets(style="margin-top: 10px")
         .tweet(ng-repeat="tweet in tweets")
-          / .pull-left
-          /   p(ng-bind="tweet.user.name")
+          .pull-left(style="min-width: 100px")
+            p(ng-bind="tweet.user.name")
           .message
             p(ng-bind="tweet.message")

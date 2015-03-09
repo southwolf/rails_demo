@@ -5,7 +5,7 @@ class TweetsController < ApplicationController
   # GET /tweets
   # GET /tweets.json
   def index
-    @tweets = current_user.tweets.order("created_at desc")
+    @tweets = current_user.tweets_in_home
   end
 
   # GET /tweets/1
@@ -26,7 +26,12 @@ class TweetsController < ApplicationController
   # POST /tweets.json
   def create
     @tweet = current_user.tweets.new(tweet_params)
-    @tweet.save
+    if @tweet.save
+      current_user.followers.each do |f|
+        Rails.logger.info f.inspect
+        f.activity_feeds.create!(trigger_source: @tweet)
+      end
+    end
     respond_with @tweet
   end
 

@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150307034348) do
+ActiveRecord::Schema.define(version: 20150309031743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activity_feeds", force: :cascade do |t|
+    t.integer  "receiver_id"
+    t.integer  "trigger_source_id"
+    t.string   "trigger_source_type"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "activity_feeds", ["receiver_id"], name: "index_activity_feeds_on_receiver_id", using: :btree
+  add_index "activity_feeds", ["trigger_source_id", "trigger_source_type"], name: "af_trigger_source", using: :btree
 
   create_table "follows", force: :cascade do |t|
     t.integer  "followable_id",                   null: false
