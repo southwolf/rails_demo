@@ -2,7 +2,7 @@
   = render 'left_column_content'
   h3(ng-bind="'Hello ' + currentProfile.name")
 
-  .parent
+  .parent(style="max-width: 500px")
     .edit-profile.main-content(ng-if="displayPartial('edit-profile')")
       form.form-horizontal
         .form-group
@@ -13,7 +13,7 @@
           .col-sm-offset-4.col-sm-8
             button.btn.btn-default(ng-click="updateProfile(editProfile)") Update Profile
 
-    .tweet-form.main-content(ng-if="displayPartial('default')")
+    .tweet-content.main-content(ng-if="displayPartial('default')")
       = render "tweets/form"
       .tweets(style="margin-top: 10px")
         .tweet(ng-repeat="tweet in tweets")
