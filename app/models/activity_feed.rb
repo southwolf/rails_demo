@@ -6,9 +6,6 @@ class ActivityFeed < ActiveRecord::Base
 
   def notify_receiver
     channel = receiver.becomes(User::Feed).channel
-    Rails.logger.info channel
-    puts trigger_source.jbuilder_render
-    puts trigger_source.attributes
     UserFeedsController.publish(channel, trigger_source.jbuilder_render)
   end
 

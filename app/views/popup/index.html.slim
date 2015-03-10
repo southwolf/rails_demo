@@ -1,0 +1,6 @@
+.tweets
+  .tweet(ng-repeat="tweet in tweets")
+    .pull-left(style="min-width: 100px")
+      p(ng-bind="tweet.user.name")
+    .message
+      p(ng-bind="tweet.message")

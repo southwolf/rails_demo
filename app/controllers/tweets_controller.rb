@@ -8,6 +8,11 @@ class TweetsController < ApplicationController
     @tweets = current_user.tweets_in_home.includes(:user)
   end
 
+  def latest
+    @tweets = Tweet.order('created_at desc').includes(:user)
+    render :index
+  end
+
   # GET /tweets/1
   # GET /tweets/1.json
   def show

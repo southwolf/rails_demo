@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'popup', to: 'popup#index'
+
   resources :follow_users, only: [:create, :destroy]
-  resources :tweets
+  resources :tweets do
+    collection do
+      get :latest
+    end
+  end
 
   get 'posts/create'
 
