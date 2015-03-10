@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:latest]
   respond_to :json, :html
 
   # GET /tweets
