@@ -1,6 +1,6 @@
-.profile(ng-init="currentProfile = #{@profile.to_json}")
+.profile(ng-init="currentUser = #{render(template: 'profiles/home.json')}")
   = render 'left_column_content'
-  h3(ng-bind="'Hello ' + currentProfile.name")
+  h3(ng-bind="'Hello ' + currentUser.name")
 
   .parent(style="max-width: 500px")
     .edit-profile.main-content(ng-if="displayPartial('edit-profile')")

@@ -5,7 +5,7 @@ class TweetsController < ApplicationController
   # GET /tweets
   # GET /tweets.json
   def index
-    @tweets = current_user.tweets_in_home
+    @tweets = current_user.tweets_in_home.includes(:user)
   end
 
   # GET /tweets/1
@@ -28,10 +28,10 @@ class TweetsController < ApplicationController
     @tweet = current_user.tweets.new(tweet_params)
     if @tweet.save
       current_user.followers.each do |f|
-        Rails.logger.info f.inspect
         f.activity_feeds.create!(trigger_source: @tweet)
       end
     end
+
     respond_with @tweet
   end
 

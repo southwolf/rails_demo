@@ -28,5 +28,7 @@ module RailsDemo
       g.helper false
     end
 
+    config.middleware.delete Rack::Lock
+    config.middleware.use FayeRails::Middleware, mount: '/faye', :timeout => 25
   end
 end

@@ -31,4 +31,5 @@ class User < ActiveRecord::Base
     query = tweet_table[:id].in(tweet_feeds_ids).or(tweet_table[:user_id].eq(id))
     Tweet.where(query).order("created_at desc")
   end
+
 end

@@ -1,7 +1,7 @@
 json.extract! @profile, :name, :user_id
 
 json.followers @user.followers.each do |f|
-  json.name f.name
+  json.partial! 'users/user', user: f
 end
 
 json.followers_count @user.followers_count
