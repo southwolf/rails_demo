@@ -10,7 +10,7 @@ class TweetsController < ApplicationController
   end
 
   def latest
-    @tweets = Tweet.order('created_at desc').includes(:user)
+    @tweets = Tweet.order('created_at desc').includes(:user).limit(10)
     render :index
   end
 
