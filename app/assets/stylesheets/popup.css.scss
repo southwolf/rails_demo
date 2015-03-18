@@ -2,7 +2,8 @@
   margin: 100px 100px;
 
   .tweet.ng-enter {
-    animation: bounceInDown 1s;
+    animation: bounceInDown 1.5s;
+    color: yellow;
   }
 
 }
